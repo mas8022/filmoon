@@ -8,11 +8,40 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xxm: "380px",
+        xm: "500px",
+        sm: "640px",
+        md: "768px",
+        xd: "815px",
+        xxd: "875px",
+        mmd: "940px",
+        ld: "1000px",
+        lg: "1024px",
+        llg: "1060px",
+        lgg: "1112px",
+        xl: "1280px",
+        xxl: "1312px",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        first: "#09122C",
+        second: "#FF9D23",
+        third: "#fff",
+      },
+      fontFamily: {
+        medium: "var(--font-BYekan)",
+        light: "light",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({
+      addVariant,
+    }: {
+      addVariant: (name: string, style: string) => void;
+    }) {
+      addVariant("child", "& > *");
+      addVariant("child-hover", "& > *:hover");
+    },
+  ],
 } satisfies Config;

@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  @font-face {
+    font-family: light;
+    src: local(light), url("../../public/fonts/BYekan/BYekan+.ttf");
+    font-display: swap;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all linear 0.1s;
+  }
+  html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
