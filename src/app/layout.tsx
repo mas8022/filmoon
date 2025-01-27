@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/templates/Navbar";
-import ParticlesBackground from "@/components/templates/ParticlesBackground";
+import Navbar from "../components/templates/Navbar";
+import ParticlesBackground from "../components/templates/ParticlesBackground";
 
 const font = localFont({
   src: "../../public/fonts/BYekan/BYekan+ Bold.ttf",

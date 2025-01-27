@@ -28,7 +28,7 @@ export default {
   			first: '#000',
   			second: '#FF9D23',
   			third: '#fff',
-  			forth: '#222831',
+  			forth: '#151515',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

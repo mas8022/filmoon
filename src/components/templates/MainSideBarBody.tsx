@@ -1,12 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import Side from "../modules/Side";
-import MainSideBarBody from "./MainSideBarBody";
 
-const NavbarUl = () => {
+const MainSideBarBody = () => {
   return (
-    <div className="h-full flex items-center gap-4">
-      <div className="llg:flex hidden items-center gap-8">
+    <div className="w-full h-full flex flex-col justify-between">
+      <div className="relative w-full flex flex-col gap-8 p-8">
         <Link href="/" className="text-third text-2xl">
           فیلمون
         </Link>
@@ -29,7 +27,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="z-10 w-80 absolute delay-200 bg-first rounded-3xl top-8 -right-10 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -65,7 +63,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="z-10 w-80 absolute delay-200 bg-first rounded-3xl top-8 -right-10 left-2 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -101,7 +99,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="z-10 w-80 absolute delay-200 bg-first rounded-3xl top-8 -right-10 left-2 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -137,7 +135,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="z-10 w-80 absolute delay-200 bg-first rounded-3xl top-8 -right-10 left-2 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -162,46 +160,11 @@ const NavbarUl = () => {
           تماس با ما
         </Link>
       </div>
-      <Side sideBarName="main-sidebar" cls="llg:hidden block">
-        <MainSideBarBody />
-      </Side>
-
-      <button className="xm:flex hidden items-center gap-2 text-2xl mr-4">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
-        جستجو
-      </button>
-
-      <div className="center border-2 rounded-full p-2 xm:hidden flex">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-          />
-        </svg>
-      </div>
+      <p className="w-full p-4 border-t border-third/10 text-third/60 text-xl">
+        فیلم و سریال را با ما تجربه کنید
+      </p>
     </div>
   );
 };
 
-export default NavbarUl;
+export default MainSideBarBody;

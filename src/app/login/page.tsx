@@ -4,7 +4,7 @@ import { useFormik, FormikErrors } from "formik";
 import { MoonLoader } from "react-spinners";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { useSanitizeInput } from "@/../utils/useSanitizeInput";
+import { useSanitizeInput } from "@/utils/useSanitizeInput";
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
