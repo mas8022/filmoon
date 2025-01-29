@@ -5,7 +5,7 @@ import { MoonLoader } from "react-spinners";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useSanitizeInput } from "@/utils/useSanitizeInput";
-
+import { useRouter } from "next/navigation";
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
 interface LoginValues {
@@ -14,6 +14,7 @@ interface LoginValues {
 }
 
 export default function Login() {
+  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false);
 
   const sanitizeInput = useSanitizeInput;
@@ -32,30 +33,26 @@ export default function Login() {
       }
       return errors;
     },
-    onSubmit: async (values, { setSubmitting }) => {
+    onSubmit: async (values) => {
       setLoading(true);
-      setTimeout(async () => {
-        const response = await fetch("/api/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-        const result = await response.json();
+      const result = await response.json();
 
-        setLoading(false);
+      setLoading(false);
 
-        if (result.status === 200) {
-          toast.success(result.message);
-          location.pathname = "/";
-        } else {
-          toast.error(result.message);
-        }
-
-        setSubmitting(false);
-      }, 3000);
+      if (result.status === 200) {
+        toast.success(result.message);
+        router.replace('/?query=authentication')
+      } else {
+        toast.error(result.message);
+      }
     },
   });
 
@@ -82,23 +79,27 @@ export default function Login() {
             <span className="text-xl text-red-600">{login.errors.email}</span>
           )}
         </div>
-        <div className="w-full flex flex-col gap-4">   <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
-          id="password"
-          name="password"
-          type="password"
-          onChange={(e) => {
-            const sanitizedValue = sanitizeInput(e.target.value);
-            login.setFieldValue("password", sanitizedValue);
-          }}
-          value={login.values.password}
-          placeholder="رمز عبور"
-        />
-        {login.touched.password && login.errors.password && (
-          <span className="text-xl text-red-600">{login.errors.password}</span>
-        )}</div>
+        <div className="w-full flex flex-col gap-4">
+          {" "}
+          <input
+            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+            id="password"
+            name="password"
+            type="password"
+            onChange={(e) => {
+              const sanitizedValue = sanitizeInput(e.target.value);
+              login.setFieldValue("password", sanitizedValue);
+            }}
+            value={login.values.password}
+            placeholder="رمز عبور"
+          />
+          {login.touched.password && login.errors.password && (
+            <span className="text-xl text-red-600">
+              {login.errors.password}
+            </span>
+          )}
+        </div>
 
-     
         <button
           type="submit"
           className="w-full rounded-lg border-0 h-[4rem] bg-second active:bg-second/70 text-white flex items-center justify-center"

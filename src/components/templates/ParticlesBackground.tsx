@@ -11,15 +11,10 @@ interface ParticlesBackgroundProps {
 
 const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ children }) => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container?: Container) => {
-    if (container) {
-      console.log(container);
-    }
-  }, []);
+
 
   return (
     <div className="wrapper">
@@ -27,7 +22,6 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ children }) =
       <Particles
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         options={{
           fullScreen: {
             enable: true,

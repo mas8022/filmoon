@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../components/templates/Navbar";
 import ParticlesBackground from "../components/templates/ParticlesBackground";
+import { Toaster } from "react-hot-toast";
+import { QueryProvider } from "@/utils/query";
 
 const font = localFont({
   src: "../../public/fonts/BYekan/BYekan+ Bold.ttf",
@@ -22,8 +24,11 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${font.variable}`}>
-        <Navbar />
-        <ParticlesBackground> {children}</ParticlesBackground>
+        <QueryProvider>
+          <Navbar />
+          <ParticlesBackground> {children}</ParticlesBackground>
+          <Toaster position="top-center" reverseOrder={false} />
+        </QueryProvider>
       </body>
     </html>
   );

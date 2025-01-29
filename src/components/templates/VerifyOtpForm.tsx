@@ -7,11 +7,25 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
   const router = useRouter();
   const [otp, setOtp] = useState<string[]>(["", "", "", "", ""]);
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(120);
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setTime((p) => p - 1);
+    }, 1000);
+
     inputsRef.current[0]?.focus();
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
+
+  useEffect(() => {
+    if (time === 0) {
+      window.location.reload();
+    }
+  }, [time]);
 
   const handleChange = async (index: number, value: string) => {
     if (/^\d?$/.test(value)) {
@@ -25,8 +39,6 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
 
       if (newOtp.every((digit) => digit !== "")) {
         try {
-          setLoading(true);
-
           const response = await fetch("/api/sms/verify", {
             method: "POST",
             headers: {
@@ -39,14 +51,13 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
 
           if (result.status === 200) {
             toast.success(result.message);
-            router.replace('/')
+            router.replace("/?query=authentication");
+
           } else {
             toast.error(result.message);
           }
         } catch (error) {
           toast.error("An error occurred. Please try again.");
-        } finally {
-          setLoading(false);
         }
       }
     }
@@ -88,6 +99,7 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
             />
           ))}
         </div>
+        <span className="text-second text-center">{time}ثانیه</span>
       </div>
     </div>
   );

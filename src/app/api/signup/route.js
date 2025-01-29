@@ -6,14 +6,14 @@ import {
 } from "../../../../utils/authTools.js";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import prisma from "../../../../utils/prisma.ts";
+import prisma from "../../../../utils/prisma";
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
 export async function POST(req) {
   try {
     const { fullName, email, password, phone, check } = await req.json();
 
-    const userEmail = await await prisma.user.findUnique({ where: { email } });
+    const userEmail = await prisma.user.findUnique({ where: { email } });
     if (userEmail) {
       return NextResponse.json(
         { message: "این ادرس ایمیل قبلا ثبت نام شده است" },
@@ -55,11 +55,11 @@ export async function POST(req) {
       process.env.refreshPrivateKey
     );
 
-    const admin = await prisma.user.findUnique({
-      where: { role: "ADMIN" },
+    const admin = await prisma.user.findFirst({
+      where: { role: "ADMIN", refreshToken },
     });
 
-    await prisma.create({
+    await prisma.user.create({
       data: {
         fullName,
         email,
@@ -67,7 +67,7 @@ export async function POST(req) {
         phone,
         check,
         refreshToken,
-        roll: !!admin ? "USER" : "ADMIN",
+        role: !!admin ? "USER" : "ADMIN",
       },
     });
 

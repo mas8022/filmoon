@@ -3,32 +3,46 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { MoonLoader } from "react-spinners";
 import { FaUser } from "react-icons/fa";
-import {logoutHandler} from '@/utils/authTools'
+import { logoutHandler } from "@/utils/authTools";
 import Bg from "../modules/Bg";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const ProfileBtn = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams()?.get("query");
   const [slideProfile, setSlideProfile] = useState(false);
   const [isPending, setIsPendingMe] = useState(false);
-  const [roll, setRollMe] = useState("USER");
-  const [fetched, setFetched] = useState(true);//test default false
+  const [role, setRole] = useState("USER");
+  const [fetched, setFetched] = useState(true);
 
-//   useEffect(() => {
-//     fetch("/api/resetToken")
-//       .then((res) => {
-//         setIsPendingMe(true);
-//         return res.json();
-//       })
-//       .then((result) => {
-//         setRollMe(result.roll);
-//         setFetched(true);
-//       });
-//   }, [slideProfile]);
+  const restoreTokenFetch = () => {
+    fetch("/api/resetToken")
+      .then((res) => {
+        setIsPendingMe(true);
+        return res.json();
+      })
+      .then((result) => {
+        setRole(result.role);
+        setFetched(true);
+      });
+    router.push("?");
+  };
+
+  useEffect(() => {
+    restoreTokenFetch();
+  }, [slideProfile]);
+
+  useEffect(() => {
+    if (searchParams === "authentication") {
+      restoreTokenFetch();
+    }
+  }, [searchParams]);
 
   return !fetched ? (
     <MoonLoader size={30} color="#ffffff" />
   ) : (
     <>
-      {roll === "USER" || roll === "ADMIN" ? (
+      {role === "USER" || role === "ADMIN" ? (
         <>
           <div className="cursor-pointer relative">
             <div onClick={() => setSlideProfile((p) => !p)}>
@@ -47,7 +61,7 @@ const ProfileBtn = () => {
               }`}
             >
               <div className="w-full flex flex-col gap-2 font-bold child:text-[1.4rem] child:font-light child:text-white bg-white/0 child:flex child:items-center child:justify-between child:px-6 child:py-3 child-hover:bg-third/20 child:rounded-2xl">
-                {roll === "ADMIN" ? (
+                {role === "ADMIN" ? (
                   <Link href="/cms" onClick={() => setSlideProfile(false)}>
                     پیشخوان مدیریت
                     <svg

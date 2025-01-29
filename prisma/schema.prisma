@@ -14,6 +14,13 @@ model User {
   password     String
   phone        String  @unique
   check        Boolean @default(false)
-  refreshToken String
+  refreshToken String  @unique
   role         String  @default("USER")
+}
+
+model Otp {
+  id      Int    @id @default(autoincrement())
+  phone   String
+  code    String
+  expTime BigInt
 }

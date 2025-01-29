@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
 import { useSanitizeInput } from "../../../utils/useSanitizeInput";
+import { useRouter } from "next/navigation";
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
@@ -17,6 +18,7 @@ interface FormValues {
 }
 
 const Page: React.FC = () => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const signUp = useFormik<FormValues>({
@@ -43,31 +45,29 @@ const Page: React.FC = () => {
       }
       return errors;
     },
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: async (values) => {
       setLoading(true);
-      setTimeout(async () => {
-        await fetch("/api/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        })
-          .then((res) => {
-            return res.json();
-          })
-          .then((result) => {
-            if (result.status === 201) {
-              toast.success(result.message);
-              location.pathname = "/";
-            } else {
-              toast.error(result.message);
-            }
-          });
-        setLoading(false);
 
-        setSubmitting(false);
-      }, 3000);
+      await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          if (result.status === 201) {
+            toast.success(result.message);
+
+            router.replace("/?query=authentication");
+          } else {
+            toast.error(result.message);
+          }
+        });
+      setLoading(false);
     },
   });
 
