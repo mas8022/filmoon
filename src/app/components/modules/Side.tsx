@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { HiMenu } from "react-icons/hi";
-import { useLocalStorage } from "../../../utils/useLocalStorage";
+import { useLocalStorage } from "../../../../utils/localStore";
 
 interface SideProps {
   children: React.ReactNode;

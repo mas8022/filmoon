@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Side from "../modules/Side";
 import MainSideBarBody from "./MainSideBarBody";
-import { useModal } from "@/utils/useModal";
+import { useModal } from "@/hooks/useModal";
 
 const NavbarUl = () => {
   const { openModal, closeModal, Modal } = useModal();

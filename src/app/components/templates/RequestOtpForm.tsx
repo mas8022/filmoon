@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import MoonLoader from "react-spinners/MoonLoader";
 import Link from "next/link";
-import { useSanitizeInput } from "../../../utils/useSanitizeInput";
+import { useSanitizeInput } from "../../../../utils/sanitizeInput";
 
 interface RequestOtpFormProps {
   setIsSendCode: React.Dispatch<React.SetStateAction<boolean>>;

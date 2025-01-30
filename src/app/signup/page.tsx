@@ -4,8 +4,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
-import { useSanitizeInput } from "../../../utils/useSanitizeInput";
+import { useSanitizeInput } from "../../../utils/sanitizeInput";
 import { useRouter } from "next/navigation";
+import CheckBox from "../components/modules/CheckBox";
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
@@ -61,7 +62,6 @@ const Page: React.FC = () => {
         .then((result) => {
           if (result.status === 201) {
             toast.success(result.message);
-
             router.replace("/?query=authentication");
           } else {
             toast.error(result.message);
@@ -97,7 +97,6 @@ const Page: React.FC = () => {
           )}
         </div>
         <div className="w-full flex flex-col gap-4">
-          {" "}
           <input
             className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
             id="email"
@@ -116,7 +115,6 @@ const Page: React.FC = () => {
         </div>
 
         <div className="w-full flex flex-col gap-4">
-          {" "}
           <input
             className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
             id="phone"
@@ -162,13 +160,9 @@ const Page: React.FC = () => {
             </Link>{" "}
             این سایت هستید
           </p>
-          <input
-            type="checkbox"
-            name="check"
-            onChange={signUp.handleChange}
-            onBlur={signUp.handleBlur}
-            checked={signUp.values.check}
-            className="size-[1.5rem]"
+          <CheckBox
+            name='check'
+            formHandler={signUp}
           />
         </div>
         {signUp.touched.check && signUp.errors.check && (

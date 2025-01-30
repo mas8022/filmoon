@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "../components/templates/Navbar";
-import ParticlesBackground from "../components/templates/ParticlesBackground";
+import Navbar from "./components/templates/Navbar";
+import ParticlesBackground from "./components/templates/ParticlesBackground";
 import { Toaster } from "react-hot-toast";
 import { QueryProvider } from "@/utils/query";
 

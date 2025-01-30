@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import VerifyOtpForm from "../../components/templates/VerifyOtpForm";
-import RequestOtpForm from "@/src/components/templates/RequestOtpForm";
+import VerifyOtpForm from "../components/templates/VerifyOtpForm";
+import RequestOtpForm from "@/src/app/components/templates/RequestOtpForm";
 
 export default function page() {
   const [isSendCode, setIsSendCode] = useState<boolean>(false);
