@@ -27,7 +27,16 @@ export default function RootLayout({
         <QueryProvider>
           <Navbar />
           <ParticlesBackground> {children}</ParticlesBackground>
-          <Toaster position="top-center" reverseOrder={false} />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+              style: {
+                background: "#333",
+                color: "#fff",
+              },
+            }}
+          />
         </QueryProvider>
       </body>
     </html>

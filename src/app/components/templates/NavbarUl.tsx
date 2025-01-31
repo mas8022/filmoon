@@ -255,7 +255,7 @@ const NavbarUl = () => {
             </svg>
           </div>
           <div className="w-full flex flex-col items-center gap-4">
-            <span className="xm:text-3xl text-2xl text-third/50">موردی پیدا نشد...</span>
+            <span className="xm:text-3xl text-2xl text-second">موردی جستجو نشده...</span>
           </div>
         </div>
       </Modal>

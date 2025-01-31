@@ -1,5 +1,7 @@
 import { compare, hash } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
+import toast from "react-hot-toast";
+import swal from "sweetalert"
 
 function generateToken(data, processEnvKey) {
   const token = sign(data, processEnvKey, {
@@ -44,31 +46,32 @@ async function verifyPassword(password, hashedPassword) {
 }
 
 function logoutHandler() {
-//   swal({
-//     icon: "warning",
-//     title: "هشدار...",
-//     text: "ایا مطمعنین که میخواهید از حسابتان خارج شوید",
-//     buttons: ["لغو", "تایید"],
-//   }).then((response) => {
-//     if (response) {
-//       fetch("/api/logout", {
-//         method: "POST",
-//       })
-//         .then((res) => {
-//           return res.json();
-//         })
-//         .then((result) => {
-//           if (result.status === 200) {
-//             toast.success(result.message);
-//             setTimeout(() => {
-//               location.pathname = "/";
-//             }, 2000);
-//           } else {
-//             toast.error(result.message);
-//           }
-//         });
-//     }
-//   });
+  swal({
+    icon: "warning",
+    title: "هشدار...",
+    text: "ایا مطمعنین که میخواهید از حسابتان خارج شوید",
+    buttons: ["لغو", "تایید"],
+   className: "modern-swal"
+  }).then((response) => {
+    if (response) {
+      fetch("/api/logout", {
+        method: "POST",
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          if (result.status === 200) {
+            toast.success(result.message);
+            setTimeout(() => {
+              location.pathname = "/";
+            }, 2000);
+          } else {
+            toast.error(result.message);
+          }
+        });
+    }
+  });
 }
 
 export {

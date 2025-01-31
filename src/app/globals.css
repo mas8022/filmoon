@@ -70,7 +70,7 @@
     transition: all linear 0.1s;
     color: aliceblue;
     font-size: 1.5rem;
-    line-height: 2rem
+    line-height: 2rem;
   }
   html {
     font-size: 10px;
@@ -104,7 +104,6 @@
   }
 }
 
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -128,11 +127,75 @@ input:-webkit-autofill:active {
   }
 }
 
-
 .hidden-scrollbar::-webkit-scrollbar {
-display: none;
+  display: none;
 }
 
-.swal-text {
-text-align: center !important;
+/* sweetAlert css start */
+.modern-swal {
+  background-color: #222 !important; /* پس‌زمینه تیره */
+  color: #fff !important;
+  border-radius: 15px !important; /* گرد شدن بیشتر */
+  direction: rtl;
+  text-align: center; /* وسط‌چین کردن متن */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+.modern-swal h2 {
+  font-size: 22px !important;
+  font-weight: bold;
+  color: #ddd !important;
+}
+.swal-title {
+  color: #fff;
+}
+.swal-text {
+  font-size: 16px !important;
+  line-height: 1.6;
+  color: #ddd !important;
+}
+
+.swal-button {
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease-in-out;
+}
+.swal-button--confirm {
+  background-color: #f95320 !important;
+}
+.swal-button--cancel {
+  background: #000 !important;
+}
+.swal-button:hover {
+  background-color: #f95320 !important;
+}
+.swal-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.modern-swal .swal-icon {
+  border-color: #f95320 !important; /* تغییر رنگ کادر آیکون */
+  background-color: #f95320 !important; /* تغییر رنگ پس‌زمینه */
+}
+
+.modern-swal .swal-icon::before,
+.modern-swal .swal-icon::after {
+  background-color: #f95320 !important; /* تغییر رنگ خطوط */
+}
+
+.modern-swal .swal-icon--success__line,
+.modern-swal .swal-icon--success__ring,
+.modern-swal .swal-icon--warning,
+.modern-swal .swal-icon--info,
+.modern-swal .swal-icon--error {
+  border-color: #f95320 !important; /* تغییر رنگ بخش‌های مختلف آیکون */
+  background-color: #f95320 !important;
+}
+
+.modern-swal .swal-icon--success__hide-corners {
+  background-color: #222 !important; /* همخوانی با پس‌زمینه */
+}
+
+/* sweetAlert css finish */

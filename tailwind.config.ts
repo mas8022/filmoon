@@ -26,7 +26,7 @@ export default {
   		},
   		colors: {
   			first: '#000',
-  			second: '#FF9D23',
+  			second: '#f95320',
   			third: '#fff',
   			forth: '#151515',
   			background: 'hsl(var(--background))',

@@ -57,10 +57,10 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ children }) =
           },
           particles: {
             color: {
-              value: "#ff8c0084", // نقاط نارنجی
+              value: "#f95320", // نقاط نارنجی
             },
             links: {
-              color: "#ff8c00",
+              color: "#f95320",
               distance: 150,
               enable: true,
               opacity: 1,
