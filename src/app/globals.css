@@ -131,6 +131,7 @@ input:-webkit-autofill:active {
   display: none;
 }
 
+
 /* sweetAlert css start */
 .modern-swal {
   background-color: #222 !important; /* پس‌زمینه تیره */
@@ -150,6 +151,7 @@ input:-webkit-autofill:active {
   color: #fff;
 }
 .swal-text {
+  text-align: center;
   font-size: 16px !important;
   line-height: 1.6;
   color: #ddd !important;
@@ -185,17 +187,73 @@ input:-webkit-autofill:active {
   background-color: #f95320 !important; /* تغییر رنگ خطوط */
 }
 
-.modern-swal .swal-icon--success__line,
-.modern-swal .swal-icon--success__ring,
-.modern-swal .swal-icon--warning,
-.modern-swal .swal-icon--info,
-.modern-swal .swal-icon--error {
-  border-color: #f95320 !important; /* تغییر رنگ بخش‌های مختلف آیکون */
+/* تغییر رنگ کلیه آیکون‌ها */
+.modern-swal .swal-icon {
+  border-color: #f95320 !important;
   background-color: #f95320 !important;
 }
 
-.modern-swal .swal-icon--success__hide-corners {
-  background-color: #222 !important; /* همخوانی با پس‌زمینه */
+/* خطوط تیک موفقیت */
+.modern-swal .swal-icon--success__line {
+  background-color: white !important; /* رنگ سفید برای وضوح بهتر */
+  border-color: white !important;
 }
 
+/* حلقه دور آیکون موفقیت */
+.modern-swal .swal-icon--success__ring {
+  border: 4px solid #f95320 !important;
+  background: transparent !important;
+}
+
+/* مخفی کردن گوشه‌های اضافی */
+.modern-swal .swal-icon--success__hide-corners {
+  background-color: #222 !important;
+}
+
+/* استایل کلی آیکون هشدار، اطلاعات و خطا */
+.modern-swal .swal-icon--warning,
+.modern-swal .swal-icon--info,
+.modern-swal .swal-icon--error {
+  border-color: #f95320 !important;
+  background-color: #f95320 !important;
+}
+
+/* متن داخل Swal */
+.modern-swal .swal-title,
+.modern-swal .swal-text {
+  color: white !important;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* دکمه تأیید */
+.modern-swal .swal-button {
+  background-color: #f95320 !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.modern-swal .swal-button:hover {
+  background-color: #e2461c !important;
+}
+
+.swal-text:last-child {
+  text-align: center;
+}
+
+.swal-icon--warning__body, .swal-icon--warning__dot {
+  background: #fff;
+}
+.swal-icon--error__line{
+  background:#fff;
+}
+.modern-swal .swal-icon:before, .modern-swal .swal-icon:after {
+  background-color: transparent !important;
+}
+.swal-icon--success__hide-corners{
+  display: none;
+}
 /* sweetAlert css finish */

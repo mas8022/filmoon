@@ -95,7 +95,7 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
               value={otp[index]}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className="sm:size-32 size-20 text-center sm:text-7xl text-4xl text-third bg-first font-light border-y rounded-lg focus:outline-none focus:ring-2 focus:ring-second"
+              className="sm:size-32 size-20 text-center sm:text-7xl text-4xl text-third bg-first font-light border-y rounded-lg focus:outline-none outline-none focus:border-y-2 focus:border-second"
             />
           ))}
         </div>

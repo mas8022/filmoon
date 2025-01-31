@@ -6,6 +6,7 @@ import ParticlesBackground from "./components/templates/ParticlesBackground";
 import { Toaster } from "react-hot-toast";
 import { QueryProvider } from "@/utils/query";
 import Footer from "./components/templates/Footer";
+import Scroller from "./components/templates/Scroller";
 
 const font = localFont({
   src: "../../public/fonts/BYekan/BYekan+ Bold.ttf",
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Footer />
           </ParticlesBackground>
         </QueryProvider>
+
 
         <Toaster
           position="top-center"

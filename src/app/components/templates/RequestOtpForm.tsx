@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import MoonLoader from "react-spinners/MoonLoader";
 import Link from "next/link";
-import { useSanitizeInput } from "../../../../utils/sanitizeInput";
+import { sanitizedInput } from "../../../../utils/sanitizeInput";
 
 interface RequestOtpFormProps {
   setIsSendCode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -66,7 +66,7 @@ const RequestOtpForm: React.FC<RequestOtpFormProps> = ({
           className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
           name="phone"
           type="text"
-          onChange={(e) => setPhone(useSanitizeInput(e.target.value) ?? "")}
+          onChange={(e) => setPhone(sanitizedInput(e.target.value) ?? "")}
           value={phone}
           placeholder="شماره موبایل"
         />

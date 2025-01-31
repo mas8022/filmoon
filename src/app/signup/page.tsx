@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
-import { useSanitizeInput } from "../../../utils/sanitizeInput";
+import { sanitizedInput } from "../../../utils/sanitizeInput";
 import { useRouter } from "next/navigation";
 import CheckBox from "../components/modules/CheckBox";
 
@@ -84,7 +84,7 @@ const Page: React.FC = () => {
             name="fullName"
             type="text"
             onChange={(e) => {
-              const sanitizedValue = useSanitizeInput(e.target.value);
+              const sanitizedValue = sanitizedInput(e.target.value);
               signUp.setFieldValue("fullName", sanitizedValue);
             }}
             value={signUp.values.fullName}
@@ -103,7 +103,7 @@ const Page: React.FC = () => {
             name="email"
             type="text"
             onChange={(e) => {
-              const sanitizedValue = useSanitizeInput(e.target.value);
+              const sanitizedValue = sanitizedInput(e.target.value);
               signUp.setFieldValue("email", sanitizedValue);
             }}
             value={signUp.values.email}
@@ -121,7 +121,7 @@ const Page: React.FC = () => {
             name="phone"
             type="text"
             onChange={(e) => {
-              const sanitizedValue = useSanitizeInput(e.target.value);
+              const sanitizedValue = sanitizedInput(e.target.value);
               signUp.setFieldValue("phone", sanitizedValue);
             }}
             value={signUp.values.phone}
@@ -139,7 +139,7 @@ const Page: React.FC = () => {
             name="password"
             type="text"
             onChange={(e) => {
-              const sanitizedValue = useSanitizeInput(e.target.value);
+              const sanitizedValue = sanitizedInput(e.target.value);
               signUp.setFieldValue("password", sanitizedValue);
             }}
             value={signUp.values.password}

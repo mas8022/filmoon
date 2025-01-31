@@ -4,7 +4,7 @@ import { useFormik, FormikErrors } from "formik";
 import { MoonLoader } from "react-spinners";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { useSanitizeInput } from "@/utils/sanitizeInput";
+import { sanitizedInput } from "@/utils/sanitizeInput";
 import { useRouter } from "next/navigation";
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
@@ -17,7 +17,7 @@ export default function Login() {
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false);
 
-  const sanitizeInput = useSanitizeInput;
+  const sanitizeInput = sanitizedInput;
 
   const login = useFormik<LoginValues>({
     initialValues: {

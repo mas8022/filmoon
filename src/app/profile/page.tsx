@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { MoonLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import { logoutHandler } from "../../../utils/authTools";
-import { useSanitizeInput } from "@/utils/sanitizeInput";
+import { sanitizedInput } from "@/utils/sanitizeInput";
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
@@ -104,7 +104,7 @@ const Page: React.FC = () => {
               name="fullName"
               type="text"
               onChange={(e) => {
-                const sanitizedValue = useSanitizeInput(e.target.value);
+                const sanitizedValue = sanitizedInput(e.target.value);
                 editProfile.setFieldValue("fullName", sanitizedValue);
               }}
               value={editProfile.values.fullName}
@@ -123,7 +123,7 @@ const Page: React.FC = () => {
               name="email"
               type="text"
               onChange={(e) => {
-                const sanitizedValue = useSanitizeInput(e.target.value);
+                const sanitizedValue = sanitizedInput(e.target.value);
                 editProfile.setFieldValue("email", sanitizedValue);
               }}
               value={editProfile.values.email}
@@ -140,7 +140,7 @@ const Page: React.FC = () => {
               name="phone"
               type="text"
               onChange={(e) => {
-                const sanitizedValue = useSanitizeInput(e.target.value);
+                const sanitizedValue = sanitizedInput(e.target.value);
                 editProfile.setFieldValue("phone", sanitizedValue);
               }}
               value={editProfile.values.phone}

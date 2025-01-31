@@ -1,4 +1,4 @@
-const useSanitizeInput = (value: string): string | undefined => {
+const sanitizedInput = (value: string): string | undefined => {
     if (typeof window !== "undefined") {
       const temp = document.createElement("div");
       temp.textContent = value;
@@ -8,5 +8,5 @@ const useSanitizeInput = (value: string): string | undefined => {
     }
   };
   
-  export { useSanitizeInput };
+  export { sanitizedInput };
   

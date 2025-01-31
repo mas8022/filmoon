@@ -8,14 +8,15 @@ datasource db {
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
+  id           Int           @id @default(autoincrement())
   fullName     String
-  email        String  @unique
+  email        String        @unique
   password     String
-  phone        String  @unique
-  check        Boolean @default(false)
-  refreshToken String  @unique
-  role         String  @default("USER")
+  phone        String        @unique
+  check        Boolean       @default(false)
+  refreshToken String        @unique
+  role         String        @default("USER")
+  comments     SiteComment[]
 }
 
 model Otp {
@@ -23,4 +24,15 @@ model Otp {
   phone   String
   code    String
   expTime BigInt
+}
+
+model SiteComment {
+  id        Int      @id @default(autoincrement())
+  comment   String
+  publish   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([publish])
 }
