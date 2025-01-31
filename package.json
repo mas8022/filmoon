@@ -14,6 +14,7 @@
     "@radix-ui/react-checkbox": "^1.1.3",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.65.1",
+    "aos": "^2.3.4",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
