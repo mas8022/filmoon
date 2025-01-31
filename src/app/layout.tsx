@@ -5,6 +5,7 @@ import Navbar from "./components/templates/Navbar";
 import ParticlesBackground from "./components/templates/ParticlesBackground";
 import { Toaster } from "react-hot-toast";
 import { QueryProvider } from "@/utils/query";
+import Footer from "./components/templates/Footer";
 
 const font = localFont({
   src: "../../public/fonts/BYekan/BYekan+ Bold.ttf",
@@ -25,19 +26,23 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className={`${font.variable}`}>
         <QueryProvider>
-          <Navbar />
-          <ParticlesBackground> {children}</ParticlesBackground>
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              style: {
-                background: "#333",
-                color: "#fff",
-              },
-            }}
-          />
+          <ParticlesBackground>
+            <Navbar />
+            {children}
+            <Footer />
+          </ParticlesBackground>
         </QueryProvider>
+
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              background: "#333",
+              color: "#fff",
+            },
+          }}
+        />
       </body>
     </html>
   );

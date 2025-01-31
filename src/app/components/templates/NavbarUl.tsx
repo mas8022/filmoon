@@ -32,7 +32,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="w-72 absolute delay-200 bg-first top-8 rounded-2xl border-y-2 border-second/80 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -68,7 +68,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="w-72 absolute delay-200 bg-first top-8 rounded-2xl border-y-2 border-second/80 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -104,7 +104,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="w-72 absolute delay-200 bg-first top-8 rounded-2xl border-y-2 border-second/80 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
@@ -140,7 +140,7 @@ const NavbarUl = () => {
               d="m19.5 8.25-7.5 7.5-7.5-7.5"
             />
           </svg>
-          <ul className="w-96 absolute delay-200 bg-first/50 top-8 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
+          <ul className="w-72 absolute delay-200 bg-first top-8 rounded-2xl border-y-2 border-second/80 invisible group-hover:visible group-hover:mt-5 group-hover:opacity-100 opacity-0 flex gap-10 p-7">
             <div className="flex flex-col gap-6 child-hover:text-second">
               <li>کمدی</li>
               <li>ریالیتی شو</li>
