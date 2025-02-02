@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { HiMenu } from "react-icons/hi";
-import { useLocalStorage } from "../../../../utils/localStore";
+import { localStore } from "../../../../utils/localStore";
 
 interface SideProps {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface SideProps {
 }
 
 const Side: React.FC<SideProps> = ({ children, sideBarName, cls = "" }) => {
-  const [sideFlag, setSideFlag] = useLocalStorage(sideBarName, false);
+  const [sideFlag, setSideFlag] = localStore(sideBarName, false);
 
   useEffect(() => {
     const closeSideBarHandler = (e: MouseEvent) => {

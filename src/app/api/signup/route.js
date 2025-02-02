@@ -7,7 +7,7 @@ import {
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import prisma from "../../../../utils/prisma";
-const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+import { emailRegex } from "../../../../staticData";
 
 export async function POST(req) {
   try {

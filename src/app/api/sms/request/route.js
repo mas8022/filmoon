@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import request from "request";
 import prisma from "../../../../../utils/prisma";
-
-const iranianPhoneRegex = /^(\+98|0)?9\d{9}$/;
+import { iranianPhoneRegex } from "../../../../../staticData";
 
 export async function POST(req) {
   try {

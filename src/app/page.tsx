@@ -1,5 +1,5 @@
 import CommentsSlider from "./components/templates/CommentsSlider";
-import prisma from "../../utils/prisma";
+import prisma from "../../libs/prisma";
 import Hr from "./components/modules/Hr";
 
 export default async function Home() {

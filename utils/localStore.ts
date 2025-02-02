@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 
-export const useLocalStorage = <T>(key: string, initialValue: T) => {
+export const localStore = <T>(key: string, initialValue: T) => {
   const [state, setState] = useState<T | null>(null);
   const [isPending, setIsPending] = useState<boolean>(true);
 

@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import MoonLoader from "react-spinners/MoonLoader";
 import Link from "next/link";
 import { sanitizedInput } from "../../../../utils/sanitizeInput";
+import { iranianPhoneRegex } from "../../../../staticData";
 
 interface RequestOtpFormProps {
   setIsSendCode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,8 +18,6 @@ const RequestOtpForm: React.FC<RequestOtpFormProps> = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
-
-  const iranianPhoneRegex = /^(\+98|0)?9\d{9}$/;
 
   const requestOtp = async () => {
     if (!iranianPhoneRegex.test(phone)) {
