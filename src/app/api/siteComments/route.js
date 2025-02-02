@@ -1,11 +1,11 @@
-import { MeEmail } from "../../../../utils/me";
+import { Me } from "../../../../utils/me";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import prisma from "../../../../utils/prisma";
 
 export async function POST(req) {
   try {
-    const email = await MeEmail();
+    const { email } = await Me();
 
     if (!email) {
       return NextResponse.json({

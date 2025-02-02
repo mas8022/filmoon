@@ -1,7 +1,10 @@
 import { cookies } from "next/headers";
 import prisma from "../utils/prisma";
 import { verifyToken } from "../utils/authTools";
+import  ResetToken  from "../utils/resetToken";
+
 async function Me() {
+  await ResetToken()
   const token = (await cookies()).get("token")?.value;
 
   const payload = verifyToken(token, process.env.privateKey);
@@ -17,20 +20,4 @@ async function Me() {
   }
 }
 
-async function MeEmail() {
-  try {
-    const token = (await cookies()).get("token")?.value;
-
-    const payload = verifyToken(token, process.env.privateKey);
-
-    if (payload) {
-      return payload.email;
-    } else {
-      return false;
-    }
-  } catch (error) {
-    return false;
-  }
-}
-
-export { Me, MeEmail };
+export { Me };

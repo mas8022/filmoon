@@ -17,6 +17,45 @@ model User {
   refreshToken String        @unique
   role         String        @default("USER")
   comments     SiteComment[]
+  Like         Like[]
+  DisLike      DisLike[]
+}
+
+model SiteComment {
+  id        Int       @id @default(autoincrement())
+  comment   String
+  publish   Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
+  Like      Like[]
+  DisLike   DisLike[]
+
+  @@index([publish])
+}
+
+model Like {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  user          User        @relation(fields: [userId], references: [id])
+  siteCommentId Int
+  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id])
+
+  @@unique([userId, siteCommentId])
+  @@index([userId])
+  @@index([siteCommentId])
+}
+
+model DisLike {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  user          User        @relation(fields: [userId], references: [id])
+  siteCommentId Int
+  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id])
+
+  @@unique([userId, siteCommentId])
+  @@index([userId])
+  @@index([siteCommentId])
 }
 
 model Otp {
@@ -24,15 +63,4 @@ model Otp {
   phone   String
   code    String
   expTime BigInt
-}
-
-model SiteComment {
-  id        Int      @id @default(autoincrement())
-  comment   String
-  publish   Boolean  @default(false)
-  createdAt DateTime @default(now())
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
-
-  @@index([publish])
 }

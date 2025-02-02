@@ -6,11 +6,13 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="relative w-full bg-forth overflow-hidden">
-      <div className="absolute -top-[20rem] -left-[10rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
-      <div className="absolute -top-[20rem] left-[10rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
-      <div className="absolute -top-[20rem] left-[30rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
-      <div className="absolute -top-[20rem] left-[50rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
-      <div className="absolute -top-[20rem] left-[70rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+      <div className="xm:block hidden">
+        <div className="absolute -top-[20rem] -left-[10rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+        <div className="absolute -top-[20rem] left-[10rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+        <div className="absolute -top-[20rem] left-[30rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+        <div className="absolute -top-[20rem] left-[50rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+        <div className="absolute -top-[20rem] left-[70rem] w-24 h-[100rem] -rotate-45 bg-second"></div>
+      </div>
       <div className="relative w-full overflow-hidden py-12 px-6 md:px-16">
         <div className="absolute inset-0 -z-10 flex justify-center gap-10">
           {Array.from({ length: 5 }).map((_, i) => (
