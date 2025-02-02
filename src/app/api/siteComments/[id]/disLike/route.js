@@ -1,25 +1,24 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { Me } from "../../../../../../utils/me";
-import prisma from "../../../../../../utils/prisma";
+import prisma from "../../../../../../libs/prisma";
+
 export async function POST(req, { params }) {
   try {
     let { id } = await params;
     id = Number(id);
 
-    const { email } = await Me();
+    const me = await Me();
 
-    if (!email) {
+    if (!me) {
       return NextResponse.json({
         message: "ابتدا در سایت ثبت نام کنید",
         status: 400,
       });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
-
     const disLikeBefore = await prisma.disLike.findFirst({
-      where: { userId: user.id, siteCommentId: id },
+      where: { userId: me.id, siteCommentId: id },
     });
 
     if (!!disLikeBefore) {
@@ -27,7 +26,7 @@ export async function POST(req, { params }) {
     }
 
     await prisma.disLike.create({
-      data: { userId: user.id, siteCommentId: id },
+      data: { userId: me.id, siteCommentId: id },
     });
 
     revalidatePath("/", "page");

@@ -6,7 +6,7 @@ import {
 } from "../../../../utils/authTools.js";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import prisma from "../../../../utils/prisma";
+import prisma from "../../../../libs/prisma";
 import { emailRegex } from "../../../../staticData";
 
 export async function POST(req) {

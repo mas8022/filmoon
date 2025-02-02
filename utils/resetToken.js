@@ -1,15 +1,15 @@
 import { cookies } from "next/headers";
 import { verifyRefreshToken, generateToken, verifyToken } from "./authTools";
 import { NextResponse } from "next/server";
-import prisma from "./prisma";
+import prisma from "../libs/prisma";
 
 export default async function ResetToken() {
   try {
-    
     const refreshToken = (await cookies()).get("refresh-token")?.value;
+    console.log("ok", refreshToken);
 
     if (!refreshToken) {
-      return NextResponse.redirect("/login");
+      return NextResponse.redirect(`${process.env.HOST_NAME}/login`);
     }
 
     const refreshTokenPayLoad = verifyRefreshToken(
@@ -18,16 +18,14 @@ export default async function ResetToken() {
     );
 
     if (!refreshTokenPayLoad) {
-      return NextResponse.redirect("/login");
+      return NextResponse.redirect(`${process.env.HOST_NAME}/login`);
     }
 
     const user = await prisma.user.findUnique({ where: { refreshToken } });
 
     if (!user) {
-      return NextResponse.redirect("/login");
+      return NextResponse.redirect(`${process.env.HOST_NAME}/login`);
     }
-
-    
 
     const email = user.email;
     const userRole = user.role;

@@ -1,6 +1,7 @@
 import CommentsSlider from "./components/templates/CommentsSlider";
 import prisma from "../../libs/prisma";
 import Hr from "./components/modules/Hr";
+import UE from "@/utils/UE";
 
 export default async function Home() {
   const siteComments = await prisma.siteComment.findMany({
@@ -24,7 +25,10 @@ export default async function Home() {
   return (
     <div className="w-full md:px-32 px-8">
       <div className="w-full h-screen"></div>
-      <CommentsSlider comments={JSON.parse(JSON.stringify(siteComments))} />
+      <UE>
+        <CommentsSlider comments={JSON.parse(JSON.stringify(siteComments))} />
+      </UE>
+
       <Hr />
     </div>
   );

@@ -6,7 +6,7 @@ import {
 } from "../../../../utils/authTools.js";
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
-import prisma from "../../../../utils/prisma";
+import prisma from "../../../../libs/prisma";
 
 export async function POST(req) {
   try {

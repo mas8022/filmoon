@@ -4,7 +4,7 @@ import {
   generateToken,
 } from "../../../../utils/authTools.js";
 import { cookies } from "next/headers.js";
-import prisma from "../../../../utils/prisma.js";
+import prisma from "../../../../libs/prisma";
 
 export async function POST(req) {
   try {

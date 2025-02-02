@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import prisma from "../../../../../../utils/prisma";
+import prisma from "../../../../../../libs/prisma";
 import { Me } from "../../../../../../utils/me";
 import { NextResponse } from "next/server";
 
@@ -8,19 +8,17 @@ export async function POST(req, { params }) {
     let { id } = await params;
     id = Number(id);
 
-    const { email } = await Me();
+    const me = await Me();
 
-    if (!email) {
+    if (!me) {
       return NextResponse.json({
         message: "ابتدا در سایت ثبت نام کنید",
         status: 400,
       });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
-
     const likeBefore = await prisma.like.findUnique({
-      where: { userId_siteCommentId: { userId: user.id, siteCommentId: id } },
+      where: { userId_siteCommentId: { userId: me.id, siteCommentId: id } },
     });
 
     if (!!likeBefore) {
@@ -29,7 +27,7 @@ export async function POST(req, { params }) {
 
     await prisma.like.create({
       data: {
-        userId: user.id,
+        userId: me.id,
         siteCommentId: id,
       },
     });

@@ -1,27 +1,26 @@
 import { Me } from "../../../../utils/me";
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import prisma from "../../../../utils/prisma";
+import prisma from "../../../../libs/prisma";
 
 export async function POST(req) {
   try {
-    const { email } = await Me();
+    const me = await Me();
 
-    if (!email) {
+    if (!me) {
       return NextResponse.json({
         message: "برای ارسال نظر باید در سایت ثبت نام کرده باشید",
         status: 401,
       });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
-
     const { comment } = await req.json();
+    
     await prisma.siteComment.create({
       data: {
         comment,
         publish: false,
-        userId: user.id,
+        userId: me.id,
       },
     });
 

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import request from "request";
-import prisma from "../../../../../utils/prisma";
+import prisma from "../../../../../libs/prisma";
 import { iranianPhoneRegex } from "../../../../../staticData";
 
 export async function POST(req) {

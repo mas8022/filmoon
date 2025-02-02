@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import prisma from "../../../../../../utils/prisma";
+import prisma from '../../../../../../libs/prisma'
 
 export async function GET(req, { params }) {
   try {

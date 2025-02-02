@@ -1,11 +1,15 @@
 import { cookies } from "next/headers";
-import prisma from "../utils/prisma";
+import prisma from "../libs/prisma";
 import { verifyToken } from "../utils/authTools";
-import  ResetToken  from "../utils/resetToken";
+import ResetToken from "../utils/resetToken";
 
 async function Me() {
-  await ResetToken()
+  await ResetToken();
   const token = (await cookies()).get("token")?.value;
+
+  if (!token) {
+    return null;
+  }
 
   const payload = verifyToken(token, process.env.privateKey);
 
