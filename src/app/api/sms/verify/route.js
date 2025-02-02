@@ -35,12 +35,12 @@ export async function POST(req) {
 
     const refreshToken = generateRefreshToken(
       { email },
-      process.env.refreshPrivateKey
+      process.env.REFRESH_TOKEN_KEY
     );
 
     await prisma.user.update({ where: { email }, data: { refreshToken } });
 
-    const newAccessToken = generateToken({ email }, process.env.privateKey);
+    const newAccessToken = generateToken({ email }, process.env.TOKEN_KEY);
 
     (await cookies()).set("token", newAccessToken, {
       httpOnly: true,

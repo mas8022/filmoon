@@ -14,11 +14,11 @@ export async function POST(req) {
     const email = formData.get("email");
     const phone = formData.get("phone");
 
-    const token = generateToken({ email }, process.env.privateKey);
+    const token = generateToken({ email }, process.env.TOKEN_KEY);
 
     const refreshToken = generateRefreshToken(
       { email },
-      process.env.refreshPrivateKey
+      process.env.REFRESH_TOKEN_KEY
     );
 
     await prisma.user.update({

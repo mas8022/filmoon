@@ -6,29 +6,25 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
 import { emailRegex } from "@/staticData";
-
-interface ProfileFormValues {
-  fullName: string;
-  email: string;
-  phone: string;
-}
+import { EditProfileFormValuesType } from "@/types";
 
 interface ProfileResponse {
   fullName: string;
   email: string;
   phone: string;
 }
+
 const EditProfile = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const editProfile = useFormik<ProfileFormValues>({
+  const editProfile = useFormik<EditProfileFormValuesType>({
     initialValues: {
       fullName: "",
       email: "",
       phone: "",
     },
     validate: (values) => {
-      const errors: FormikErrors<ProfileFormValues> = {};
+      const errors: FormikErrors<EditProfileFormValuesType> = {};
       if (!values.fullName.trim() || !isNaN(Number(values.fullName))) {
         errors.fullName = "نام تان را به درستی وارد کنید";
       }

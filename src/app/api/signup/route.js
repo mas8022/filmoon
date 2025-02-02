@@ -49,10 +49,10 @@ export async function POST(req) {
     }
 
     const hashedPassword = await hashPassword(password);
-    const token = generateToken({ email }, process.env.privateKey);
+    const token = generateToken({ email }, process.env.TOKEN_KEY);
     const refreshToken = generateRefreshToken(
       { email },
-      process.env.refreshPrivateKey
+      process.env.REFRESH_TOKEN_KEY
     );
 
     const admin = await prisma.user.findFirst({

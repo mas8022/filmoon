@@ -8,20 +8,13 @@ import { useRouter } from "next/navigation";
 import { sanitizedInput } from "@/utils/sanitizeInput";
 import CheckBox from "../modules/CheckBox";
 import { emailRegex } from "@/staticData";
-
-interface FormValues {
-  fullName: string;
-  email: string;
-  password: string;
-  phone: string;
-  check: boolean;
-}
+import { SignUpFormValuesType } from "@/types";
 
 const Signup: React.FC = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const signUp = useFormik<FormValues>({
+  const signUp = useFormik<SignUpFormValuesType>({
     initialValues: {
       fullName: "",
       email: "",

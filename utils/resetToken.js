@@ -14,7 +14,7 @@ export default async function ResetToken() {
 
     const refreshTokenPayLoad = verifyRefreshToken(
       refreshToken,
-      process.env.refreshPrivateKey
+      process.env.REFRESH_TOKEN_KEY
     );
 
     if (!refreshTokenPayLoad) {
@@ -33,13 +33,13 @@ export default async function ResetToken() {
     const token = (await cookies()).get("token")?.value;
 
     if (token) {
-      const validationToken = verifyToken(token, process.env.privateKey);
+      const validationToken = verifyToken(token, process.env.TOKEN_KEY);
       if (validationToken) {
         return userRole ? userRole : false;
       }
     }
 
-    const newToken = generateToken({ email }, process.env.privateKey);
+    const newToken = generateToken({ email }, process.env.TOKEN_KEY);
 
     (await cookies()).set("token", newToken, {
       httpOnly: true,

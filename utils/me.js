@@ -11,7 +11,7 @@ async function Me() {
     return null;
   }
 
-  const payload = verifyToken(token, process.env.privateKey);
+  const payload = verifyToken(token, process.env.TOKEN_KEY);
 
   const user = await prisma.user.findUnique({
     where: { email: payload.email },

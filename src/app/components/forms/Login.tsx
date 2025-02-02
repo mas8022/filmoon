@@ -7,11 +7,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
 import { emailRegex } from "@/staticData";
-
-interface LoginValues {
-  email: string;
-  password: string;
-}
+import { LoginFormValuesType } from "@/types";
 
 const Login = () => {
   const router = useRouter();
@@ -19,13 +15,13 @@ const Login = () => {
 
   const sanitizeInput = sanitizedInput;
 
-  const login = useFormik<LoginValues>({
+  const login = useFormik<LoginFormValuesType>({
     initialValues: {
       email: "",
       password: "",
     },
     validate: (values) => {
-      const errors: FormikErrors<LoginValues> = {};
+      const errors: FormikErrors<LoginFormValuesType> = {};
       if (!emailRegex.test(values.email)) {
         errors.email = "ایمیل تان را به درستی وارد کنید";
       } else if (values.password.length > 15 || values.password.length < 8) {
