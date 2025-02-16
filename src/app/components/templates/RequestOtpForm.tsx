@@ -54,7 +54,7 @@ const RequestOtpForm: React.FC<RequestOtpFormProps> = ({
 
   return (
     <form
-      className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem]"
+      className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem] bg-second/10"
       onSubmit={(e) => {
         e.preventDefault();
         requestOtp();
@@ -62,7 +62,7 @@ const RequestOtpForm: React.FC<RequestOtpFormProps> = ({
     >
       <div className="w-full flex flex-col gap-4">
         <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
           name="phone"
           type="text"
           onChange={(e) => setPhone(sanitizedInput(e.target.value) ?? "")}
@@ -88,7 +88,7 @@ const RequestOtpForm: React.FC<RequestOtpFormProps> = ({
         )}
       </button>
 
-      <p className="text-[1.2rem] text-third">
+      <p className="text-[1.2rem] text-black">
         در صورت نداشتن حساب کاربری{" "}
         <Link href="/signup" className="text-blue-500">
           ثبت نام

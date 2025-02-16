@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./components/templates/Navbar";
 import ParticlesBackground from "./components/templates/ParticlesBackground";
 import { Toaster } from "react-hot-toast";
 import { QueryProvider } from "@/utils/query";
-import Footer from "./components/templates/Footer";
-import Scroller from "./components/templates/Scroller";
+import { ThemeProvider } from "next-themes";
+import BottomBar from "./components/templates/BottomBar";
 
 const font = localFont({
   src: "../../public/fonts/BYekan/BYekan+ Bold.ttf",
@@ -26,25 +25,25 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${font.variable}`}>
-        <QueryProvider>
-          <ParticlesBackground>
-            <Navbar />
-            {children}
-            <Footer />
-          </ParticlesBackground>
-        </QueryProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <QueryProvider>
+            <ParticlesBackground>
+              {children}
+              <BottomBar />
+            </ParticlesBackground>
+          </QueryProvider>
 
-
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          toastOptions={{
-            style: {
-              background: "#333",
-              color: "#fff",
-            },
-          }}
-        />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+              style: {
+                background: "#7F27FF",
+                color: "#fff",
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

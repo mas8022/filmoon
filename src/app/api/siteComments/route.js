@@ -15,7 +15,7 @@ export async function POST(req) {
     }
 
     const { comment } = await req.json();
-    
+
     await prisma.siteComment.create({
       data: {
         comment,
@@ -28,7 +28,7 @@ export async function POST(req) {
 
     return NextResponse.json({
       message:
-        "ممنون از نظر شما! هدف ما همیشه بهبود خدمات و رضایت شماست. اگر نکته‌ای برای بهبود دارید، لطفاً با ما در میان بگذارید",
+        "نظرتان با موفقیت اصلاح شد",
       status: 201,
     });
   } catch (error) {

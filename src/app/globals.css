@@ -8,59 +8,6 @@
     src: local(light), url("../../public/fonts/BYekan/BYekan+.ttf");
     font-display: swap;
   }
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
 
   * {
     @apply border-border;
@@ -68,7 +15,6 @@
     padding: 0;
     box-sizing: border-box;
     transition: all linear 0.1s;
-    color: aliceblue;
     font-size: 1.5rem;
     line-height: 2rem;
   }
@@ -78,10 +24,8 @@
     font-family: light;
   }
   body {
-    @apply bg-background text-foreground;
     width: 100%;
     height: 100vh;
-    background: #000;
   }
   ::-webkit-scrollbar {
     display: none;
@@ -97,7 +41,7 @@
     background-position: center;
   }
   .btn {
-    @apply rounded-lg center text-2xl active:opacity-70 active:scale-[99.5%] shadow-md px-8 pt-3 pb-4;
+    @apply rounded-xl center text-2xl active:opacity-70 active:scale-[99.5%] shadow-md px-8 pt-3 pb-4;
   }
   .input {
     @apply rounded-lg px-6 py-4 text-2xl outline-none focus:outline-none border;
@@ -109,9 +53,9 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: #252525;
   transition: background-color 5000s ease-in-out 0s;
-  box-shadow: inset 0 0 20px 20px #000;
+  box-shadow: inset 0 0 20px 20px transparent;
 }
 .select-appearance-none {
   -webkit-appearance: none;
@@ -131,30 +75,31 @@ input:-webkit-autofill:active {
   display: none;
 }
 
-
 /* sweetAlert css start */
 .modern-swal {
-  background-color: #222 !important; /* پس‌زمینه تیره */
-  color: #fff !important;
-  border-radius: 15px !important; /* گرد شدن بیشتر */
+  background-color: #7F27FF !important; /* پس‌زمینه به رنگ اصلی */
+  color: white !important;
+  border-radius: 15px !important;
   direction: rtl;
-  text-align: center; /* وسط‌چین کردن متن */
+  text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modern-swal h2 {
   font-size: 22px !important;
   font-weight: bold;
-  color: #ddd !important;
+  color: #FDBF60 !important; /* رنگ سوم برای عنوان */
 }
+
 .swal-title {
-  color: #fff;
+  color: white !important;
 }
+
 .swal-text {
   text-align: center;
   font-size: 16px !important;
   line-height: 1.6;
-  color: #ddd !important;
+  color: #555555 !important; /* رنگ سوم برای متن */
 }
 
 .swal-button {
@@ -164,58 +109,56 @@ input:-webkit-autofill:active {
   font-size: 16px !important;
   transition: all 0.3s ease-in-out;
 }
+
 .swal-button--confirm {
-  background-color: #f95320 !important;
+  background-color: #FF8911 !important; /* رنگ چهارم برای دکمه تأیید */
 }
+
 .swal-button--cancel {
-  background: #000 !important;
+  background: #9F70FD !important; /* رنگ دوم برای دکمه لغو */
 }
+
 .swal-button:hover {
-  background-color: #f95320 !important;
+  background-color: #FDBF60 !important; /* رنگ سوم هنگام هاور */
 }
+
 .swal-button:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* آیکون‌ها */
 .modern-swal .swal-icon {
-  border-color: #f95320 !important; /* تغییر رنگ کادر آیکون */
-  background-color: #f95320 !important; /* تغییر رنگ پس‌زمینه */
+  border-color: #FF8911 !important; /* رنگ چهارم */
+  background-color: #FF8911 !important;
 }
 
 .modern-swal .swal-icon::before,
 .modern-swal .swal-icon::after {
-  background-color: #f95320 !important; /* تغییر رنگ خطوط */
+  background-color: #FF8911 !important;
 }
 
-/* تغییر رنگ کلیه آیکون‌ها */
-.modern-swal .swal-icon {
-  border-color: #f95320 !important;
-  background-color: #f95320 !important;
-}
-
-/* خطوط تیک موفقیت */
+/* موفقیت */
 .modern-swal .swal-icon--success__line {
-  background-color: white !important; /* رنگ سفید برای وضوح بهتر */
+  background-color: white !important;
   border-color: white !important;
 }
 
-/* حلقه دور آیکون موفقیت */
 .modern-swal .swal-icon--success__ring {
-  border: 4px solid #f95320 !important;
+  border: 4px solid #9F70FD !important; /* رنگ دوم */
   background: transparent !important;
 }
 
-/* مخفی کردن گوشه‌های اضافی */
 .modern-swal .swal-icon--success__hide-corners {
-  background-color: #222 !important;
+  background-color: #7F27FF !important; /* رنگ اصلی */
 }
 
-/* استایل کلی آیکون هشدار، اطلاعات و خطا */
+/* هشدار، اطلاعات و خطا */
 .modern-swal .swal-icon--warning,
 .modern-swal .swal-icon--info,
 .modern-swal .swal-icon--error {
-  border-color: #f95320 !important;
-  background-color: #f95320 !important;
+  border-color: #FF8911 !important;
+  background-color: #FF8911 !important;
 }
 
 /* متن داخل Swal */
@@ -228,7 +171,7 @@ input:-webkit-autofill:active {
 
 /* دکمه تأیید */
 .modern-swal .swal-button {
-  background-color: #f95320 !important;
+  background-color: #FF8911 !important;
   color: white !important;
   border-radius: 8px;
   padding: 10px 20px;
@@ -237,24 +180,33 @@ input:-webkit-autofill:active {
 }
 
 .modern-swal .swal-button:hover {
-  background-color: #e2461c !important;
+  background-color: #FDBF60 !important;
 }
 
 .swal-text:last-child {
   text-align: center;
 }
 
-.swal-icon--warning__body, .swal-icon--warning__dot {
+/* تغییر رنگ بخش‌های خاص */
+.swal-icon--warning__body,
+.swal-icon--warning__dot,
+.swal-icon--error__line {
   background: #fff;
 }
-.swal-icon--error__line{
-  background:#fff;
-}
-.modern-swal .swal-icon:before, .modern-swal .swal-icon:after {
+
+.modern-swal .swal-icon:before,
+.modern-swal .swal-icon:after {
   background-color: transparent !important;
 }
-.swal-icon--success__hide-corners{
+
+.swal-icon--success__hide-corners {
   display: none;
 }
+.swal-content__input, .swal-content__textarea{
+  background: #9f70fd22;
+  border-radius: 5px;
+  border: none;
+  color: #7F27FF;
+  
+}
 /* sweetAlert css finish */
-

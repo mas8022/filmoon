@@ -84,7 +84,7 @@ const CommentBox = ({
         <div className="flex gap-2">
           <button onClick={() => likeHandler(id)}>
             <div className="bg-black/5 dark:bg-black/15 rounded-full flex items-center p-4 gap-2">
-              <span className="text-[1.2rem] text-third/40">
+              <span className="text-[1.2rem] text-black/40">
                 {likes ? likes : null}
               </span>
               <svg
@@ -105,7 +105,7 @@ const CommentBox = ({
           </button>
           <button onClick={() => disLikeHandler(id)}>
             <div className="bg-black/5 dark:bg-black/15 rounded-full flex items-center p-4 gap-2">
-              <span className="text-[1.2rem] text-third/40">
+              <span className="text-[1.2rem] text-black/40">
                 {disLikes ? disLikes : null}
               </span>
               <svg

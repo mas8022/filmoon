@@ -31,11 +31,22 @@ const Side: React.FC<SideProps> = ({ children, sideBarName, cls = "" }) => {
 
   return (
     <div className={`${cls}`}>
-      <div className="size-14 center bg-second rounded-full">
-        <HiMenu
+      <div className="size-14 center bg-second rounded-xl">
+        <svg
           onClick={() => setSideFlag(true)}
-          className="text-white text-4xl"
-        />
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="size-14"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
       </div>
       <div
         className={`w-[21rem] h-screen bg-forth shadow-2xl !fixed top-0 transition-all ease-in-out duration-[0.4s] z-[1002] ${

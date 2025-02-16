@@ -14,6 +14,7 @@ export async function POST(req) {
     const { fullName, email, password, phone, check } = await req.json();
 
     const userEmail = await prisma.user.findUnique({ where: { email } });
+
     if (userEmail) {
       return NextResponse.json(
         { message: "این ادرس ایمیل قبلا ثبت نام شده است" },
@@ -55,9 +56,7 @@ export async function POST(req) {
       process.env.REFRESH_TOKEN_KEY
     );
 
-    const admin = await prisma.user.findFirst({
-      where: { role: "ADMIN", refreshToken },
-    });
+    const userCount = await prisma.user.count();
 
     await prisma.user.create({
       data: {
@@ -67,7 +66,7 @@ export async function POST(req) {
         phone,
         check,
         refreshToken,
-        role: !!admin ? "USER" : "ADMIN",
+        role: !!userCount ? "USER" : "ADMIN",
       },
     });
 

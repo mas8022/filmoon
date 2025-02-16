@@ -8,7 +8,7 @@ export default function page() {
   const [phone, setPhone] = useState<string>("");
 
   return (
-    <div className="w-full h-screen center">
+    <div className="w-full h-screen center px-4">
       {isSendCode ? (
         <VerifyOtpForm phone={phone} />
       ) : (

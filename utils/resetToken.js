@@ -6,7 +6,6 @@ import prisma from "../libs/prisma";
 export default async function ResetToken() {
   try {
     const refreshToken = (await cookies()).get("refresh-token")?.value;
-    console.log("ok", refreshToken);
 
     if (!refreshToken) {
       return NextResponse.redirect(`${process.env.HOST_NAME}/login`);

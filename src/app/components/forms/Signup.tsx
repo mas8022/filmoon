@@ -65,12 +65,12 @@ const Signup: React.FC = () => {
 
   return (
     <form
-      className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem]"
+      className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem] bg-second/10"
       onSubmit={signUp.handleSubmit}
     >
       <div className="w-full flex flex-col gap-4">
         <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
           id="fullName"
           name="fullName"
           type="text"
@@ -87,7 +87,7 @@ const Signup: React.FC = () => {
       </div>
       <div className="w-full flex flex-col gap-4">
         <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
           id="email"
           name="email"
           type="text"
@@ -105,7 +105,7 @@ const Signup: React.FC = () => {
 
       <div className="w-full flex flex-col gap-4">
         <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
           id="phone"
           name="phone"
           type="text"
@@ -123,7 +123,7 @@ const Signup: React.FC = () => {
 
       <div className="w-full flex flex-col gap-4">
         <input
-          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+          className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
           id="password"
           name="password"
           type="text"
@@ -140,7 +140,7 @@ const Signup: React.FC = () => {
       </div>
 
       <div className="w-full h-[2rem] px-[0.5rem] flex items-center gap-4">
-        <p className="text-[1.4rem] text-third">
+        <p className="text-[1.4rem] text-first">
           آیا موافق با{" "}
           <Link href={"/rule"} className="text-blue-500 text-[1.4rem]">
             قوانین
@@ -154,11 +154,15 @@ const Signup: React.FC = () => {
       )}
       <button
         type="submit"
-        className="w-full rounded-lg border-0 h-20 bg-second text-[1.8rem] active:bg-second/50 text-first flex items-center justify-center"
+        className="w-full rounded-2xl border-0 h-20 bg-second text-[1.8rem] active:bg-second/50 text-white flex items-center justify-center"
       >
-        {loading ? <MoonLoader size={20} color="#fff" /> : <span>ثبت نام</span>}
+        {loading ? (
+          <MoonLoader size={20} color="#fff" />
+        ) : (
+          <span className="text-white">ثبت نام</span>
+        )}
       </button>
-      <p className="text-[1.2rem] text-third">
+      <p className="text-[1.2rem] text-black">
         در صورت داشتن حساب کاربری{" "}
         <Link href={"/login"} className="text-blue-500">
           وارد

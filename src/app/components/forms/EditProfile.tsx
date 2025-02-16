@@ -85,14 +85,14 @@ const EditProfile = () => {
   }, []);
 
   return (
-    <div className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem]">
+    <div className="w-[40rem] rounded-3xl flex flex-col gap-10 p-[2rem] sm:p-[3rem] md:sm:p-[5rem] py-[4rem] bg-second/10">
       <form
         onSubmit={editProfile.handleSubmit}
         className="w-full flex flex-col items-center gap-7 bg-black/0 child:text-[1.4rem] child:outline-none child:focus:outline-none"
       >
         <div className="w-full flex flex-col gap-4">
           <input
-            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
             id="fullName"
             name="fullName"
             type="text"
@@ -109,7 +109,7 @@ const EditProfile = () => {
         </div>
         <div className="w-full flex flex-col gap-4">
           <input
-            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
             id="email"
             name="email"
             type="text"
@@ -126,7 +126,7 @@ const EditProfile = () => {
         </div>
         <div className="w-full flex flex-col gap-4">
           <input
-            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 border-b focus:border-b-2 focus:outline-none outline-none"
+            className="w-full h-14 border-0 px-[0.5rem] bg-first/0 text-black/80 border-b border-b-first focus:border-b-2 focus:outline-none outline-none"
             id="phone"
             name="phone"
             type="text"

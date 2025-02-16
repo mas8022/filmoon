@@ -11,14 +11,45 @@ model User {
   id           Int           @id @default(autoincrement())
   fullName     String
   email        String        @unique
-  password     String
   phone        String        @unique
+  role         String        @default("USER")
+  password     String
   check        Boolean       @default(false)
   refreshToken String        @unique
-  role         String        @default("USER")
+  avatar       String?
+  createdAt    DateTime      @default(now())
+  uploads      Upload[]
   comments     SiteComment[]
   Like         Like[]
   DisLike      DisLike[]
+}
+
+model Upload {
+  id        Int      @id @default(autoincrement())
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int?
+  frontImg  String
+  backImg   String
+  createdAt DateTime @default(now())
+  results   Result[]
+}
+
+model Result {
+  id        Int        @id @default(autoincrement())
+  upload    Upload     @relation(fields: [uploadId], references: [id], onDelete: Cascade)
+  uploadId  Int
+  styleName String
+  model3D   String
+  clothes   Clothing[]
+  createdAt DateTime   @default(now())
+}
+
+model Clothing {
+  id       Int    @id @default(autoincrement())
+  result   Result @relation(fields: [resultId], references: [id], onDelete: Cascade)
+  resultId Int
+  name     String
+  image    String
 }
 
 model SiteComment {
@@ -27,7 +58,7 @@ model SiteComment {
   publish   Boolean   @default(false)
   createdAt DateTime  @default(now())
   userId    Int
-  user      User      @relation(fields: [userId], references: [id])
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   Like      Like[]
   DisLike   DisLike[]
 
@@ -37,9 +68,9 @@ model SiteComment {
 model Like {
   id            Int         @id @default(autoincrement())
   userId        Int
-  user          User        @relation(fields: [userId], references: [id])
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   siteCommentId Int
-  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id])
+  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id], onDelete: Cascade)
 
   @@unique([userId, siteCommentId])
   @@index([userId])
@@ -49,9 +80,9 @@ model Like {
 model DisLike {
   id            Int         @id @default(autoincrement())
   userId        Int
-  user          User        @relation(fields: [userId], references: [id])
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   siteCommentId Int
-  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id])
+  siteComment   SiteComment @relation(fields: [siteCommentId], references: [id], onDelete: Cascade)
 
   @@unique([userId, siteCommentId])
   @@index([userId])
@@ -60,7 +91,7 @@ model DisLike {
 
 model Otp {
   id      Int    @id @default(autoincrement())
-  phone   String
+  phone   String @unique
   code    String
   expTime BigInt
 }

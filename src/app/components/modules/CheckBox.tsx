@@ -1,9 +1,9 @@
-import { SignUpFormValues } from "@/types";
+import { SignUpFormValuesType } from "@/types";
 import { FormikProps } from "formik";
 
 interface CheckBoxProps {
   name: string;
-  formHandler: FormikProps<SignUpFormValues>;
+  formHandler: FormikProps<SignUpFormValuesType>;
   className?: string;
 }
 
@@ -14,8 +14,8 @@ const CheckBox: React.FC<CheckBoxProps> = ({
 }) => {
   return (
     <label
-      className={`size-6 rounded-md bg-third cursor-pointer ${className} ${
-        formHandler.values.check && "!bg-second"
+      className={`size-6 rounded-lg border border-first cursor-pointer ${className} ${
+        formHandler.values.check && "!bg-second/70"
       }`}
     >
       <input

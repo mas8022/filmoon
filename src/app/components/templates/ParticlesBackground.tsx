@@ -18,25 +18,24 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ children }) =
 
   return (
     <div className="wrapper">
-      {/* ذرات */}
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
           fullScreen: {
             enable: true,
-            zIndex: -2, // قرار دادن ذرات در لایه‌ی پایین
+            zIndex: -2,
           },
           background: {
             color: {
-              value: "#000", // پس‌زمینه مشکی
+              value: "#ffffff",
             },
           },
           fpsLimit: 60,
           interactivity: {
             events: {
               onClick: {
-                enable: true,
+                enable: false,
                 mode: "push",
               },
               onHover: {
@@ -50,17 +49,17 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({ children }) =
                 quantity: 4,
               },
               repulse: {
-                distance: 0,
-                duration: 0.4,
+                distance: 100,
+                duration: 2,
               },
             },
           },
           particles: {
             color: {
-              value: "#f95320", // نقاط نارنجی
+              value: "#7F27FF",
             },
             links: {
-              color: "#f95320",
+              color: "#7F27FF",
               distance: 150,
               enable: true,
               opacity: 1,

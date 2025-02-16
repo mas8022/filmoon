@@ -74,8 +74,8 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
 
   return (
     <div className="w-full h-screen center px-4">
-      <div className="shadow-md rounded-lg sm:p-20 p-7 flex flex-col gap-4">
-        <h2 className="sm:text-5xl text-3xl font-semibold text-third text-center mb-4">
+      <div className="shadow-md sm:p-20 p-7 flex flex-col gap-4 rounded-3xl bg-second/10">
+        <h2 className="sm:text-5xl text-3xl font-semibold text-first/70 text-center mb-4">
           تأیید کد
         </h2>
         <p className="text-gray-400 sm:text-3xl text-xl text-center mb-6">
@@ -95,11 +95,11 @@ const VerifyOtpForm: React.FC<{ phone: string }> = ({ phone }) => {
               value={otp[index]}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className="sm:size-32 size-20 text-center sm:text-7xl text-4xl text-third bg-first font-light border-y rounded-lg focus:outline-none outline-none focus:border-y-2 focus:border-second"
+              className="sm:size-32 size-20 text-center sm:text-7xl text-4xl text-first bg-first/20 font-light border-y rounded-2xl focus:outline-none outline-none focus:border-y-2 focus:border-first"
             />
           ))}
         </div>
-        <span className="text-second text-center">{time}ثانیه</span>
+        <span className="text-forth text-center">{time}ثانیه</span>
       </div>
     </div>
   );
