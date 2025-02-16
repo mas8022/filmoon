@@ -6,7 +6,8 @@ import {
 import { cookies } from "next/headers.js";
 import prisma from "../../../../libs/prisma";
 
-export async function POST(req) {
+export async function POST(req) { 
+  
   try {
     const formData = await req.formData();
 
